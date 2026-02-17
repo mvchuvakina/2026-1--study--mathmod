@@ -17,6 +17,13 @@ title: "Шаблон отчёта по лабораторной работе"
 subtitle: "Простейший вариант"
 license: "CC BY"
 ---
+## Реализация модели
+
+{{< include ../project/markdown/01_exponential_growth/01_exponential_growth.qmd >}}
+
+## Литературная реализация
+
+{{< include ../project/markdown/01_exponential_growth_literate/01_exponential_growth_literate.qmd >}}
 
 # Цель работы
 
