@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru-RU" xml:lang="ru-RU">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Чувакина М. В." />
+  <title>Лабораторная работа №2</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css" />
+  
+  
+  
+  
+  
+  
+  
+  
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Презентация</h1>
+<p class="subtitle">Математическое моделирование задачи
+преследования</p>
+<p class="author">Чувакина М. В.</p>
+<p class="date">2 марта 2026</p>
+</header>
+<h2 id="докладчик">Докладчик</h2>
+<div class="columns" data-align="center">
+<div class="column" style="width:70%;">
+<ul>
+<li>Чувакина Мария Владимировна</li>
+<li>студентка</li>
+<li>группа НКНбд-01-23</li>
+<li>Российский университет дружбы народов</li>
+<li><a href="mailto:1132236055@rudn.ru">1132236055@rudn.ru</a></li>
+<li><a href="https://github.com/mvchuvakina"
+class="uri">https://github.com/mvchuvakina</a></li>
+</ul>
+</div><div class="column" style="width:30%;">
+
+</div>
+</div>
+<h1 id="цель-работы">Цель работы</h1>
+<p>Разработать математическую модель задачи преследования, реализовать
+численное решение на Julia и оформить отчёт с использованием современных
+инструментов (DrWatson, Literate, Quarto).</p>
+<h1 id="задание">Задание</h1>
+<ul>
+<li><p>Изучить задачу преследования браконьеров береговой
+охраной</p></li>
+<li><p>Вывести дифференциальное уравнение траектории катера</p></li>
+<li><p>Рассчитать радиусы перехода для двух случаев расположения
+катера</p></li>
+<li><p>Реализовать численное решение на Julia</p></li>
+<li><p>Построить траектории движения катера и лодки</p></li>
+<li><p>Найти точки встречи для заданного направления лодки</p></li>
+<li><p>Оформить отчёт в формате Quarto</p></li>
+</ul>
+<h1 id="параметры-варианта-56">Параметры варианта 56</h1>
+<p>Из таблицы вариантов:</p>
+<p>Начальное расстояние между катером и лодкой: k = 17.9 км</p>
+<p>Отношение скоростей: n = 5.2 (катер в 5.2 раза быстрее лодки)</p>
+<h1 id="математическая-модель">Математическая модель</h1>
+<h2 id="система-координат">Система координат</h2>
+<p>Введём полярную систему координат с центром (полюсом) в точке
+обнаружения лодки. Полярную ось направим через точку начального
+расположения катера.</p>
+<h2 id="два-этапа-движения-катера">Два этапа движения катера</h2>
+<p>Первый этап (прямолинейное движение). Катер движется прямо, пока не
+окажется на том же расстоянии от полюса, что и лодка.</p>
+<p>Для двух возможных начальных положений получаем радиусы перехода:</p>
+<ul>
+<li>Случай 1 (катер дальше от полюса, чем лодка):</li>
+</ul>
+<p>x1=kn+1=17.95.2+1=17.96.2=2.887 кмx1​=n+1k​=5.2+117.9​=6.217.9​=2.887
+км</p>
+<h1 id="математическая-модель-1">Математическая модель</h1>
+<ul>
+<li>Случай 2 (лодка между полюсом и катером):</li>
+</ul>
+<p>x2=kn−1=17.95.2−1=17.94.2=4.262 кмx2​=n−1k​=5.2−117.9​=4.217.9​=4.262
+км</p>
+<p>Второй этап (спиральное движение). После выхода на нужный радиус
+катер начинает двигаться так, чтобы его радиальная скорость равнялась
+скорости лодки <span class="math inline">\(v\)</span>.</p>
+<h1 id="математическая-модель-2">Математическая модель</h1>
+<p>Вывод дифференциального уравнения:</p>
+<p>Скорость катера раскладывается на две составляющие:</p>
+<ul>
+<li><p>Радиальная скорость: <span class="math inline">\(\frac{dr}{dt} =
+v\)</span> (должна равняться скорости лодки)</p></li>
+<li><p>Тангенциальная скорость: <span
+class="math inline">\(r\frac{d\theta}{dt} = v_\tau\)</span></p></li>
+</ul>
+<h1 id="математическая-модель-3">Математическая модель</h1>
+<p>Полная скорость катера: <span class="math inline">\(v_k = n \cdot
+v\)</span></p>
+<p>По теореме Пифагора:</p>
+<p>(nv)2=v2+vτ2(nv)2=v2+vτ2​</p>
+<p>Окончательное уравнение:</p>
+<p>drdθ=r5.103dθdr​=5.103r​</p>
+<h1 id="программная-реализация">Программная реализация</h1>
+<p>Переходим в нужную директорию</p>
+<figure id="fig:001">
+<img src="image/1.png" style="width:70.0%"
+alt="Создание рабочего каталога" />
+<figcaption aria-hidden="true">Создание рабочего каталога</figcaption>
+</figure>
+<h1 id="программная-реализация-1">Программная реализация</h1>
+<p>Инициализируем проект.</p>
+<figure id="fig:002">
+<img src="image/3.png" style="width:70.0%"
+alt="Инициализация проекта" />
+<figcaption aria-hidden="true">Инициализация проекта</figcaption>
+</figure>
+<h1 id="программная-реализация-2">Программная реализация</h1>
+<p>Загрузим необходимые пакеты.</p>
+<figure id="fig:003">
+<img src="image/4.png" style="width:70.0%" alt="Установка пакетов" />
+<figcaption aria-hidden="true">Установка пакетов</figcaption>
+</figure>
+<h1 id="программная-реализация-3">Программная реализация</h1>
+<p>Создадим необходимые скрипты.</p>
+<figure id="fig:004">
+<img src="image/5.png" style="width:70.0%" alt="Создание скриптов" />
+<figcaption aria-hidden="true">Создание скриптов</figcaption>
+</figure>
+<h1 id="программная-реализация-4">Программная реализация</h1>
+<h2 id="запуск-программы">Запуск программы</h2>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/work/study/2026-1/2026-1--study--mathmod/labs/lab02/project</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">julia</span> <span class="at">--project</span><span class="op">=</span>. scripts/lab02_pursuit.jl</span></code></pre></div>
+<h1 id="полученные-результаты">Полученные результаты</h1>
+<p>Численные результаты</p>
+<ul>
+<li>Случай 1 (катер начинает издалека):</li>
+</ul>
+<p>Начальный радиус спирали: 2.89 км</p>
+<p>Конечный радиус: 116.06 км</p>
+<p>Координаты точки встречи с лодкой (φ=60°): (X₁, Y₁) км</p>
+<h1 id="полученные-результаты-1">Полученные результаты</h1>
+<ul>
+<li>Случай 2 (лодка между полюсом и катером):</li>
+</ul>
+<p>Начальный радиус спирали: 4.26 км</p>
+<p>Конечный радиус: 92.57 км</p>
+<p>Координаты точки встречи с лодкой (φ=60°): (X₂, Y₂) км</p>
+<h1 id="полученные-результаты-2">Полученные результаты</h1>
+<p>Графики</p>
+<figure id="fig:005">
+<img src="image/case1.png" style="width:70.0%" alt="Случай 1" />
+<figcaption aria-hidden="true">Случай 1</figcaption>
+</figure>
+<h1 id="полученные-результаты-3">Полученные результаты</h1>
+<figure id="fig:006">
+<img src="image/case2.png" style="width:70.0%" alt="Случай 2" />
+<figcaption aria-hidden="true">Случай 2</figcaption>
+</figure>
+<h1 id="полученные-результаты-4">Полученные результаты</h1>
+<figure id="fig:007">
+<img src="image/polar.png" style="width:70.0%"
+alt="Траектории в полярных координатах" />
+<figcaption aria-hidden="true">Траектории в полярных
+координатах</figcaption>
+</figure>
+<h1 id="полученные-результаты-5">Полученные результаты</h1>
+<p>Анализ результатов</p>
+<p>Полученное дифференциальное уравнение <span
+class="math inline">\(\frac{dr}{d\theta} =
+\frac{r}{\sqrt{n^2-1}}\)</span> имеет аналитическое решение:</p>
+<p>r(θ)=r0eθ/n2−1r(θ)=r0​eθ/n2−1</p>
+<p>что подтверждается численными расчётами — траектория является
+логарифмической спиралью.</p>
+<p>Для случая 1 катер проходит большее расстояние (радиус увеличивается
+до 116 км), но благодаря спиральной траектории гарантированно встречает
+лодку при любом направлении её движения.</p>
+<p>Для случая 2 траектория более «крутая», встреча происходит быстрее и
+на меньшем удалении от полюса.</p>
+<p>Точка встречи зависит от направления движения лодки. В работе для
+определённости выбрано направление <span class="math inline">\(\varphi =
+60^\circ\)</span>.</p>
+<h1 id="генерация-отчёта">Генерация отчёта</h1>
+<p>Генерация отчёта:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">julia</span> <span class="at">--project</span><span class="op">=</span>. scripts/tangle.jl scripts/lab02_pursuit.jl</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ../report</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> pdf</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> docx</span></code></pre></div>
+<h1 id="сохранение-в-git">Сохранение в Git</h1>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/work/study/2026-1/2026-1--study--mathmod</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&quot;feat(lab02): complete laboratory work with all results&quot;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin lab02</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push gitverse lab02</span></code></pre></div>
+<h1 id="выводы">Выводы</h1>
+<p>В ходе выполнения лабораторной работы:</p>
+<ul>
+<li>Изучена математическая модель задачи преследования</li>
+<li>Получено дифференциальное уравнение траектории катера</li>
+<li>Найдены аналитические выражения для радиусов перехода</li>
+<li>Реализовано численное решение на языке Julia</li>
+<li>Построены траектории движения катера и лодки для двух случаев</li>
+<li>Определены точки встречи для заданного направления движения
+лодки</li>
+<li>Освоены инструменты DrWatson.jl и литературного
+программирования</li>
+<li>Создан отчёт в формате Quarto</li>
+<li>Результаты сохранены в Git и опубликованы на GitHub и GitVerse</li>
+</ul>
+</body>
+</html>
