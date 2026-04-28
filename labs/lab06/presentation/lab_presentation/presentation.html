@@ -1,0 +1,180 @@
+<section class="slide level1">
+
+<h2 id="докладчик">Докладчик</h2>
+<div class="columns" data-align="center">
+<div class="column" style="width:70%;">
+<ul>
+<li>Чувакина Мария Владимировна</li>
+<li>студентка</li>
+<li>группа НКНбд-01-23</li>
+<li>Российский университет дружбы народов</li>
+<li><a href="mailto:1132236055@rudn.ru">1132236055@rudn.ru</a></li>
+<li><a href="https://github.com/mvchuvakina"
+class="uri">https://github.com/mvchuvakina</a></li>
+</ul>
+</div><div class="column" style="width:30%;">
+
+</div>
+</div>
+</section>
+<section id="цель-работы" class="slide level1">
+<h1>1. Цель работы</h1>
+<p>Изучить математическую модель распространения эпидемии с пороговым
+значением I*, построить графики динамики численности групп S(t), I(t),
+R(t).</p>
+</section>
+<section id="задание" class="slide level1">
+<h1>2. Задание</h1>
+<ol type="1">
+<li>Создать рабочий каталог для кода.</li>
+<li>Реализовать математическую модель эпидемии в Scilab.</li>
+<li>Построить графики для двух случаев:
+<ul>
+<li>случай а) I(0) ≤ I*</li>
+<li>случай б) I(0) &gt; I*</li>
+</ul></li>
+<li>Проанализировать полученные результаты.</li>
+</ol>
+</section>
+<section id="параметры-модели-вариант-56" class="slide level1">
+<h1>3. Параметры модели (Вариант 56)</h1>
+<ul>
+<li><span class="math inline">\(N = 4973\)</span> — общая численность
+населения</li>
+<li><span class="math inline">\(S(0) = 4905\)</span>, <span
+class="math inline">\(I(0) = 49\)</span>, <span
+class="math inline">\(R(0) = 19\)</span></li>
+<li><span class="math inline">\(\alpha = 0.01\)</span> — коэффициент
+заболеваемости</li>
+<li><span class="math inline">\(\beta = 0.02\)</span> — коэффициент
+выздоровления</li>
+<li><span class="math inline">\(I^* = 100\)</span> — критическое
+значение</li>
+</ul>
+</section>
+<section id="математическая-модель" class="slide level1">
+<h1>4. Математическая модель</h1>
+<p><span class="math display">\[
+\frac{dS}{dt} =
+\begin{cases}
+-\alpha \dfrac{S I}{I^*}, &amp; I(t) &gt; I^* \\[10pt]
+0, &amp; I(t) \leq I^*
+\end{cases}
+\]</span></p>
+<p><span class="math display">\[
+\frac{dI}{dt} =
+\begin{cases}
+\alpha \dfrac{S I}{I^*} - \beta I, &amp; I(t) &gt; I^* \\[10pt]
+-\beta I, &amp; I(t) \leq I^*
+\end{cases}
+\]</span></p>
+<p><span class="math display">\[
+\frac{dR}{dt} = \beta I
+\]</span></p>
+</section>
+<section id="пороговое-значение-i" class="slide level1">
+<h1>5. Пороговое значение I*</h1>
+<p>Критическое значение <span class="math inline">\(I^* = 100\)</span>
+является порогом:</p>
+<ul>
+<li><strong>При <span class="math inline">\(I(0) \leq
+I^*\)</span></strong> — больные изолированы, эпидемия не
+распространяется</li>
+<li><strong>При <span class="math inline">\(I(0) &gt;
+I^*\)</span></strong> — инфекция распространяется, возникает вспышка
+эпидемии</li>
+</ul>
+</section>
+<section id="случай-1-i0-49-i-100" class="slide level1">
+<h1>6. Случай 1: I(0) = 49 ≤ I* = 100</h1>
+<p><strong>Условие:</strong> больные изолированы</p>
+<p><strong>Система:</strong> <span class="math display">\[
+\frac{dS}{dt} = 0, \quad \frac{dI}{dt} = -\beta I, \quad \frac{dR}{dt} =
+\beta I
+\]</span></p>
+<p><strong>Результат:</strong> - <span class="math inline">\(S(t) =
+4905\)</span> (постоянна) - <span class="math inline">\(I(t)\)</span>
+экспоненциально убывает - <span class="math inline">\(R(t)\)</span>
+растёт и стремится к 68</p>
+</section>
+<section id="график-для-случая-1" class="slide level1">
+<h1>6.1 График для случая 1</h1>
+<figure>
+<img data-src="../../project/plots/epidemic_case1.png"
+alt="Динамика популяций (случай 1)" />
+<figcaption aria-hidden="true">Динамика популяций (случай
+1)</figcaption>
+</figure>
+</section>
+<section id="случай-2-i0-150-i-100" class="slide level1">
+<h1>7. Случай 2: I(0) = 150 &gt; I* = 100</h1>
+<p><strong>Условие:</strong> инфекция распространяется</p>
+<p><strong>Система:</strong> <span class="math display">\[
+\frac{dS}{dt} = -\alpha \frac{S I}{I^*}, \quad
+\frac{dI}{dt} = \alpha \frac{S I}{I^*} - \beta I, \quad
+\frac{dR}{dt} = \beta I
+\]</span></p>
+<p><strong>Результат:</strong> - <span
+class="math inline">\(S(t)\)</span> убывает - <span
+class="math inline">\(I(t)\)</span> имеет пик <span
+class="math inline">\(\approx 120\)</span> на времени <span
+class="math inline">\(\approx 15\)</span> - <span
+class="math inline">\(R(t)\)</span> растёт и стремится к <span
+class="math inline">\(\approx 323\)</span></p>
+</section>
+<section id="график-для-случая-2" class="slide level1">
+<h1>7.1 График для случая 2</h1>
+<figure>
+<img data-src="../../project/plots/epidemic_case2.png"
+alt="Динамика популяций (случай 2)" />
+<figcaption aria-hidden="true">Динамика популяций (случай
+2)</figcaption>
+</figure>
+</section>
+<section id="сравнительный-анализ" class="slide level1">
+<h1>8. Сравнительный анализ</h1>
+<table>
+<thead>
+<tr>
+<th>Показатель</th>
+<th>Случай 1</th>
+<th>Случай 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Максимум I(t)</td>
+<td>49 (убывает)</td>
+<td><span class="math inline">\(\approx 120\)</span></td>
+</tr>
+<tr>
+<td>Время пика</td>
+<td>—</td>
+<td><span class="math inline">\(\approx 15\)</span></td>
+</tr>
+<tr>
+<td>Конечное S</td>
+<td><span class="math inline">\(\approx 4905\)</span></td>
+<td><span class="math inline">\(\approx 4650\)</span></td>
+</tr>
+<tr>
+<td>Конечное R</td>
+<td><span class="math inline">\(\approx 68\)</span></td>
+<td><span class="math inline">\(\approx 323\)</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="выводы" class="slide level1">
+<h1>9. Выводы</h1>
+<ol type="1">
+<li>Критическое значение <span class="math inline">\(I^* = 100\)</span>
+является порогом</li>
+<li>При <span class="math inline">\(I(0) \leq I^*\)</span> эпидемия
+затухает без массового распространения</li>
+<li>При <span class="math inline">\(I(0) &gt; I^*\)</span> возникает
+вспышка эпидемии с пиком заболеваемости</li>
+<li>Демонстрируется важность раннего выявления и изоляции
+заболевших</li>
+</ol>
+</section>
